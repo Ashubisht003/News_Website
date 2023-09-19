@@ -13,11 +13,11 @@ async function fetchNews (query){
     bindData(data.articles);
 }
 
-function bindData(articles){
+function bindData(articles) {
     const cardsContainer = document.getElementById('cards-container');
     const newsCardTemplate = document.getElementById('template-news-card');
 
-    cardsContainer.innerHTML='';
+    cardsContainer.innerHTML = '';
 
     if (articles && articles.length > 0) {
         articles.forEach(article => {
@@ -25,7 +25,8 @@ function bindData(articles){
             const cardClone = newsCardTemplate.content.cloneNode(true);
             fillDataInCard(cardClone, article);
             cardsContainer.appendChild(cardClone);
-    });
+        });
+    }
 }
 
 function fillDataInCard(cardClone,article){
@@ -81,4 +82,3 @@ searchText.addEventListener('keydown', (event) => {
 searchButton.addEventListener('click', () => {
     performSearch();
 });
-
