@@ -19,11 +19,12 @@ function bindData(articles){
 
     cardsContainer.innerHTML='';
 
-    articles.forEach(article=>{
-        if(!article.urlToImage) return;
-        const cardClone = newsCardTemplate.content.cloneNode(true);
-        fillDataInCard(cardClone,article);
-        cardsContainer.appendChild(cardClone);
+    if (articles && articles.length > 0) {
+        articles.forEach(article => {
+            if (!article.urlToImage) return;
+            const cardClone = newsCardTemplate.content.cloneNode(true);
+            fillDataInCard(cardClone, article);
+            cardsContainer.appendChild(cardClone);
     });
 }
 
